@@ -124,12 +124,23 @@ class FormBuilderImagePicker extends FormBuilderField<List<dynamic>> {
                               height: previewHeight,
                               margin: previewMargin,
                               child: kIsWeb
-                                  ? Image.memory(item as Uint8List,
-                                      fit: BoxFit.cover)
-                                  : item is String
-                                      ? Image.network(item, fit: BoxFit.cover)
-                                      : Image.file(item as File,
+                                  ? ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.memory(item as Uint8List,
                                           fit: BoxFit.cover),
+                                    )
+                                  : item is String
+                                      ? ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(6.0),
+                                          child: Image.network(item,
+                                              fit: BoxFit.cover))
+                                      : ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(6.0),
+                                          child: Image.file(item as File,
+                                              fit: BoxFit.cover),
+                                        ),
                             ),
                             if (state.enabled)
                               InkWell(

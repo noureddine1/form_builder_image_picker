@@ -97,6 +97,16 @@ class FormBuilderImagePicker extends FormBuilderField<List<dynamic>> {
             return InputDecorator(
               decoration: state.decoration(),
               child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      offset: Offset(0.0, 1.0), //(x,y)
+                      blurRadius: 2.0,
+                    ),
+                  ],
+                ),
                 height: previewHeight,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
@@ -131,7 +141,7 @@ class FormBuilderImagePicker extends FormBuilderField<List<dynamic>> {
                                 child: Container(
                                   margin: const EdgeInsets.all(3),
                                   decoration: BoxDecoration(
-                                    color: Colors.grey.withOpacity(.7),
+                                    color: Colors.red.withOpacity(.7),
                                     shape: BoxShape.circle,
                                   ),
                                   alignment: Alignment.center,
@@ -159,13 +169,13 @@ class FormBuilderImagePicker extends FormBuilderField<List<dynamic>> {
                                 width: previewWidth,
                                 height: previewHeight,
                                 child: Icon(
-                                  Icons.camera_enhance,
+                                  Icons.add_photo_alternate,
                                   color: state.enabled
                                       ? iconColor ?? primaryColor
                                       : disabledColor,
                                 ),
                                 color: (state.enabled
-                                        ? iconColor ?? primaryColor
+                                        ? iconColor ?? Colors.white
                                         : disabledColor)
                                     .withAlpha(50)),
                         onTap: () {

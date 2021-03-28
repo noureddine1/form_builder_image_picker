@@ -97,16 +97,6 @@ class FormBuilderImagePicker extends FormBuilderField<List<dynamic>> {
             return InputDecorator(
               decoration: state.decoration(),
               child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.0),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(0.0, 1.0), //(x,y)
-                      blurRadius: 2.0,
-                    ),
-                  ],
-                ),
                 height: previewHeight,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
@@ -120,6 +110,16 @@ class FormBuilderImagePicker extends FormBuilderField<List<dynamic>> {
                           alignment: Alignment.topRight,
                           children: <Widget>[
                             Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.0),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey,
+                                    offset: Offset(0.0, 1.0), //(x,y)
+                                    blurRadius: 2.0,
+                                  ),
+                                ],
+                              ),
                               width: previewWidth,
                               height: previewHeight,
                               margin: previewMargin,
@@ -166,6 +166,17 @@ class FormBuilderImagePicker extends FormBuilderField<List<dynamic>> {
                                 image: placeholderImage,
                               )
                             : Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey,
+                                      offset: Offset(0.0, 1.0), //(x,y)
+                                      blurRadius: 2.0,
+                                    ),
+                                  ],
+                                ),
                                 width: previewWidth,
                                 height: previewHeight,
                                 child: Icon(
@@ -174,10 +185,7 @@ class FormBuilderImagePicker extends FormBuilderField<List<dynamic>> {
                                       ? iconColor ?? primaryColor
                                       : disabledColor,
                                 ),
-                                color: (state.enabled
-                                        ? iconColor ?? Colors.white
-                                        : disabledColor)
-                                    .withAlpha(50)),
+                              ),
                         onTap: () {
                           showModalBottomSheet<void>(
                             context: state.context,

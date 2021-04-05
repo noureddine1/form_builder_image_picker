@@ -98,8 +98,8 @@ class FormBuilderImagePicker extends FormBuilderField<List<dynamic>> {
               decoration: state.decoration(),
               child: Container(
                 height: previewHeight,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     if (field.value != null)
                       ...field.value.map<Widget>((dynamic item) {

@@ -98,6 +98,7 @@ class FormBuilderImagePicker extends FormBuilderField<List<dynamic>> {
               decoration: state.decoration(),
               child: Container(
                 height: previewHeight,
+                color: Colors.green,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
